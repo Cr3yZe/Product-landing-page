@@ -8,6 +8,7 @@
     --back-header-color: #33335B;
     --back-color: #4F4F8C;
     --text-color: #FFF;
+    --btn-color: #37AF65;
 }
 
 html {
@@ -21,7 +22,7 @@ body {
 #header {
     background-color: var(--back-header-color);
     min-width: 100%;
-    min-height: 7em;
+    min-height: 10em;
     position: fixed;
     top: 0;
     display: grid;
@@ -40,21 +41,33 @@ body {
     align-items: center;
 }
 
-#header #nav-bar a {
-    text-decoration: none;
-    color: var(--text-color);
-    
-}
-
 #header .nav-link {
-    border: 1px solid white;
     min-width: 8em;
     min-height: 2em;
+    background-color: var(--text-color);
+    border-radius: 7px;
+    font-size: 1.1em;
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
     margin-right: 1em;
+}
+
+#header .nav-link {
+    text-decoration: none;
+    color: #000;
+    transition: 250ms;
+}
+
+/* #header #nav-bar .nav-link:nth-child(1) {
+    background-color: var(--btn-color);
+    color: var(--text-color);
+} */
+
+#header .nav-link:hover {
+    background-color: var(--btn-color);
+    color: var(--text-color);
 }
 
 .logo {
@@ -78,9 +91,22 @@ body {
     margin-top: 200px;
 }
 
-@media (min-width: 450px) {
+@media (min-width: 400px) {
+    #header .container-logo {
+        grid-template-columns: 1fr 2fr;
+        margin-left: 3%;
+        /* justify-self: start; */
+    }
+
+    #header .title {
+        display: block;
+    }
+}
+
+@media (min-width: 640px) {
     #header {
-        grid-template-columns: 1fr auto;
+        grid-template-columns: 2fr auto;
+        min-height: 6em;
     }
 
     #header .container-logo {
@@ -90,7 +116,6 @@ body {
 
     #header #nav-bar {
         margin: 0 .5em;
-        grid-column-start: 2;
         justify-content: end;
         flex-direction: row;
     }   
@@ -98,17 +123,12 @@ body {
     #header .nav-link {
         min-width: 6em;
     }
-}
 
-@media (min-width: 600px) {
-    #header .container-logo {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    #header .title {
-        display: block;
+    #header .nav-link:nth-child(2) {
+        min-width: 8em;
     }
 }
+
 
 @media (min-width: 850px) {
     #header .container-logo{
