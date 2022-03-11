@@ -5,12 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
     <title>Landing page</title>
 </head>
 <body>
     <header id="header">
-        <img src="" alt="" id="header-img">
-        <span class="title">Original Trombones</span>
+        <!-- <img src="" alt="" id="header-img"> -->
+        <div class="container-logo">
+            <box-icon class="logo" type='logo' name='netlify'></box-icon>
+            <span class="title">Original Trombones</span>
+        </div>
         <nav id="nav-bar">
             <div class="nav-link">
                 <a href="#features">Features</a>
@@ -23,7 +27,7 @@
             </div>
         </nav>
     </header>
-    <main>
+    <main id="main-content">
         <form action="" id="form">
             <input type="email" id="email" placeholder="Enter here your email">
             <input type="submit" id="submit" value="Get started">
