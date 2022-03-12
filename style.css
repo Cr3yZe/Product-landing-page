@@ -7,9 +7,9 @@
 }
 
 :root {
-    --back-header-color: #33335B;
+    --back-header-color: #1a1a30;
     --background-color: #FFF;
-    --card-color: #4F4F8C;
+    --card-color: #6a6abe;
     --text-color: #FFF;
     --box-shadow: #7663b2;
     --content-color: #000;
@@ -115,13 +115,13 @@ body {
 }
 
 #get-started {
-    background-color: var(--card-color);
+    background: linear-gradient(var(--back-header-color), var(--card-color));
     padding: clamp(.7rem, 5vw, 3rem);
     text-align: center;
-    font-weight: 500;
+    font-weight: 700;
     display: flex;
     flex-flow: column;
-    gap: 1em;
+    gap: .5em;
     align-items: center;
 }
 
@@ -166,15 +166,17 @@ body {
 }
 
 #products {
+    max-width: 70em;
     min-width: 10em;
     display: flex;
     flex-direction: column;
+    align-content: center;
     gap: 50px;
 }
 
 #products .materials, .shipping, .assurance {
     /* border: 1px solid red; */
-    background: linear-gradient(#33335B, #4F4F8C);
+    background: linear-gradient(var(--back-header-color), var(--card-color));
     position: relative;
     display: grid;
     grid-template-rows: auto 1fr;
@@ -198,7 +200,7 @@ body {
     /* min-width: 15em; */
     /* background-color: var(--back-header-color); */
     /* box-shadow: 0 0 100px 150px var(--back-header-color); */
-    font-size: clamp(.8em, 1vw, 2em);
+    font-size: clamp(.8em, .7vw, 1.5em);
     padding: 2em;
     display: flex;
     justify-content: center;
@@ -249,7 +251,6 @@ body {
         min-width: 31em;
         justify-self: center;
         border-radius: 10px;
-        box-shadow: 0 0 10px 10px var(--card-color);
     }
 
     #get-started #form #email {
@@ -302,48 +303,9 @@ body {
         gap: 4em;
     }
 
-    .materials::before {
-        content: '';
-        position: absolute;
-        bottom: -4px;
-        left: -4px;
-        width: 104%;
-        height: 102%;
-        filter: blur(4px);
-        transform: scale(1.03);
-    }
-    
-    .shipping::before {
-        content: '';
-        position: absolute;
-        bottom: -4px;
-        left: -4px;
-        width: 104%;
-        height: 102%;
-        filter: blur(4px);
-        transform: scale(1.03);
-    }
-    
-    .assurance::before {
-        content: '';
-        position: absolute;
-        bottom: -4px;
-        left: -4px;
-        width: 104%;
-        height: 102%;
-        filter: blur(4px);
-        transform: scale(1.03);
-    }
-    
-    #products .materials::before {
-        background: linear-gradient(#33335B, #4F4F8C);
-    }
-    
-    #products .shipping::before {
-        background: linear-gradient(#33335B, #4F4F8C);
-    }
-    
-    #products .assurance::before {
-        background: linear-gradient(#33335B, #4F4F8C);
+    #products .materials,
+              .shipping,
+              .assurance{
+                  border-radius: .5em;
     }
 }
