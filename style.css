@@ -8,10 +8,13 @@
 
 :root {
     --back-header-color: #33335B;
-    --back-color: #4F4F8C;
+    --background-color: #FFF;
+    --card-color: #4F4F8C;
     --text-color: #FFF;
+    --box-shadow: #7663b2;
+    --content-color: #000;
     --btn-color: #37AF65;
-    --font-family: 'Poppins', sans-serif;
+    --font-family: 'Poppinsi', sans-serif;
 }
 
 html {
@@ -19,7 +22,7 @@ html {
 }
 
 body {
-    background-color: var(--back-color);
+    background-color: var(--background-color);
     color: var(--text-color);
     font-family: var(--font-family);
     font-weight: 300;
@@ -29,10 +32,13 @@ body {
     background-color: var(--back-header-color);
     min-width: 100%;
     min-height: 10em;
+    color: var(--text-color);
+    /* box-shadow: 1px 1px 15px 20px var(--back-header-color); */
     position: fixed;
     top: 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    z-index: 999;
 }
 
 #header .container-logo {
@@ -83,6 +89,11 @@ body {
     align-self: center;
     justify-self: center;
     cursor: pointer;
+    transition: 250ms;
+}
+
+.logo:hover {
+    fill: var(--btn-color);
 }
 
 .title {
@@ -97,34 +108,127 @@ body {
 }
 
 #content {
-    margin-top: 12em;
+    min-width: 10em;
+    margin-top: 13em;
     display: grid;
     gap: 3em;
 }
 
 #get-started {
-    border: 1px solid white;
+    background-color: var(--card-color);
+    padding: clamp(.7rem, 5vw, 3rem);
+    text-align: center;
+    font-weight: 500;
     display: flex;
     flex-flow: column;
+    gap: 1em;
     align-items: center;
 }
 
 #get-started h1 {
+    font-size: clamp(2em, 3vw, 3em);
     font-weight: 700;
 }
 
 #get-started #form {
-    border: 1px solid red;
-    min-width: 80%;
+    min-width: 50%;
+    /* min-width: 50%; */
     display: flex;
     flex-direction: column;
-    gap: .5em;
+    gap: 1.5em;
+}
+
+#get-started #form #email {
+    border: none;
+    border-radius: .7em;
+    box-shadow: 0px 0px 20px 1px var(--text-color);
+    padding: .6em;
+    font-family: var(--font-family);
+    font-size: clamp(.8em, 1vw, 2em);
+    font-weight: 700;
 }
 
 #get-started #form #submit {
     min-width: 50%;
-    border: 1px solid blue;
+    background-color: var(--text-color);
+    border: none;
+    border-radius: .5em;
+    padding: 1em;
+    font-family: var(--font-family);
+    font-weight: 700;
     align-self: center;
+    transition: 250ms;
+}
+
+#get-started #form #submit:hover {
+    background-color: var(--btn-color);
+    color: var(--text-color);
+}
+
+#products {
+    min-width: 10em;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+#products .materials, .shipping, .assurance {
+    /* border: 1px solid red; */
+    background: linear-gradient(#33335B, #4F4F8C);
+    position: relative;
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+/* #products .materials::before {
+    content: '';
+    width: 130%;
+    position: absolute;
+    top: -10px;
+    border: 10px solid blue; 
+    filter: blur(6px);
+} */
+
+#products .title-products, p {
+    position: relative;
+    z-index: 0;
+}
+
+#products .title-products {
+    /* min-width: 15em; */
+    /* background-color: var(--back-header-color); */
+    /* box-shadow: 0 0 100px 150px var(--back-header-color); */
+    font-size: clamp(.8em, 1vw, 2em);
+    padding: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#products .icon {
+    align-self: center;
+    transform: scale(2);
+}
+
+#products #fire {
+    fill: red
+}
+
+#products #truck {
+    fill: gray;
+}
+
+#products #certification {
+    fill: gold
+}
+
+#products p {
+    /* background-color: var(--card-color); */
+    font-size: clamp(1.1em, 2vw, 1.5em);
+    text-align: justify;
+    padding: .7em 1.5em 1.5em 1.5em;
+
 }
 
 @media (min-width: 400px) {
@@ -140,7 +244,20 @@ body {
     }
 }
 
-@media (min-width: 640px) {
+@media (min-width: 570px) {
+    #get-started {
+        min-width: 31em;
+        justify-self: center;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 10px var(--card-color);
+    }
+
+    #get-started #form #email {
+        padding: .6em .6em .6em 1.5em;
+    }
+}
+
+@media (min-width: 740px) {
     #header {
         grid-template-columns: 2fr auto;
         min-height: 6em;
@@ -166,7 +283,7 @@ body {
     }
 
     #content {
-        margin-top: 8em;
+        margin-top: 9em;
     }
 }
 
@@ -175,5 +292,58 @@ body {
     #header .container-logo{
         justify-self: start;
         margin-left: 10%;
+    }
+}
+
+@media (min-width: 900px) {
+    #products {
+        flex-flow: row;
+        padding: 2em;
+        gap: 4em;
+    }
+
+    .materials::before {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: -4px;
+        width: 104%;
+        height: 102%;
+        filter: blur(4px);
+        transform: scale(1.03);
+    }
+    
+    .shipping::before {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: -4px;
+        width: 104%;
+        height: 102%;
+        filter: blur(4px);
+        transform: scale(1.03);
+    }
+    
+    .assurance::before {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: -4px;
+        width: 104%;
+        height: 102%;
+        filter: blur(4px);
+        transform: scale(1.03);
+    }
+    
+    #products .materials::before {
+        background: linear-gradient(#33335B, #4F4F8C);
+    }
+    
+    #products .shipping::before {
+        background: linear-gradient(#33335B, #4F4F8C);
+    }
+    
+    #products .assurance::before {
+        background: linear-gradient(#33335B, #4F4F8C);
     }
 }
