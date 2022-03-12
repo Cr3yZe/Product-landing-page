@@ -166,11 +166,11 @@ body {
 }
 
 #products {
-    max-width: 70em;
+    max-width: 100em;
     min-width: 10em;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    justify-self: center;
     gap: 50px;
 }
 
@@ -214,15 +214,19 @@ body {
 }
 
 #products #fire {
-    fill: red
+    fill: #ff8b00;
 }
 
 #products #truck {
-    fill: gray;
+    fill: #0cbfe9;
 }
 
 #products #certification {
     fill: gold
+}
+
+#products #book {
+    fill : #ff0800;
 }
 
 #products p {
@@ -296,16 +300,24 @@ body {
     }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 700px) {
     #products {
-        flex-flow: row;
         padding: 2em;
-        gap: 4em;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2em;
     }
 
     #products .materials,
               .shipping,
               .assurance{
                   border-radius: .5em;
+    }
+}
+
+@media (min-width: 1250px) {
+    #products {
+        grid-template-rows: repeat(1, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
 }
