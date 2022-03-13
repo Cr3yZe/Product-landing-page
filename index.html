@@ -9,16 +9,26 @@
     <title>Landing page</title>
 </head>
 <body>
-    <header id="header">
-        <!-- <img src="" alt="" id="header-img"> -->
+    <header id="header" class="x">
         <div class="container-logo">
             <box-icon class="logo" type='logo' name='netlify'></box-icon>
             <span class="title">Original Trombones</span>
         </div>
+        <div id="expand-button">
+            <div class="expand-button-container">
+                <box-icon class="btn-expand" name='expand-horizontal'></box-icon>
+            </div>
+        </div>
         <nav id="nav-bar">
-            <a href="#features" class="nav-link">Features</a>
-            <a href="#about" class="nav-link">How It Works</a>
-            <a href="#pricing" class="nav-link">Pricing</a>
+            <div class="nav-btn-container">
+                <a href="#features" class="nav-link">Features</a>
+            </div>
+            <div class="nav-btn-container">
+                <a href="#about" class="nav-link">About</a>
+            </div>
+            <div class="nav-btn-container">
+                <a href="#pricing" class="nav-link">Pricing</a>
+            </div>
         </nav>
     </header>
     <main id="content">
