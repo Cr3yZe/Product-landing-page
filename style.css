@@ -13,7 +13,8 @@
     --card-color1: #1a1a30;
     --card-color2: #8f4caa;
     --text-color: #FFF;
-    --box-shadow: #7663b2;
+    --box-border: 2px solid #000;
+    --box-shadow: 0 0 5px 2px gray;
     --content-color: #000;
     --btn-color: #37AF65;
     --font-family: 'Poppinsi', sans-serif;
@@ -122,8 +123,9 @@ body {
     max-width: 95%;
     background: linear-gradient(150deg, var(--card-color1), var(--card-color2));
     padding: clamp(.7rem, 5vw, 3rem);
+    border: var(--box-border);
     border-radius: .5em;
-    box-shadow: 0 0 5px 2px gray;
+    box-shadow: var(--box-shadow);
     text-align: center;
     font-weight: 700;
     justify-self: center;
@@ -188,8 +190,9 @@ body {
     /* border: 1px solid red; */
     max-width: 95%;
     background: linear-gradient(150deg, var(--card-color1), var(--card-color2));
+    border: var(--box-border);
     border-radius: .5em;
-    box-shadow: 0 0 5px 2px gray;
+    box-shadow: var(--box-shadow);
     position: relative;
     display: grid;
     grid-template-rows: auto 1fr;
@@ -253,27 +256,32 @@ body {
     min-width: 70%;
     max-width: 95%;
     min-height: 10em;
-    border: 1px solid black;
+    background: linear-gradient(150deg, var(--card-color1), var(--card-color2));
+    border: var(--box-border);
     border-radius: .2em;
-    padding: .5em;
+    box-shadow: var(--box-shadow);
+    padding: .5em .5em;
     justify-self: center;
     display: flex;
     flex-direction: column;
-    gap: .5em;
+    gap: 1em;
     color: #000;
 }
 
 #video-section h3 {
-    background: linear-gradient(150deg, var(--card-color1), var(--card-color2));
     border-radius: .5em;
     padding: .5em;
+    font-size: clamp(1.2em, 3vw, 2.5em);
+    font-weight: 700;
+    text-align: center;
     color: var(--text-color);
-    padding: .5em;
-    text-align: justify;
 }
 
 #video-section .video-container {
     min-width: 95%;
+    max-height: 10%;
+    /* border: var(--box-border); */
+    box-shadow: 0 0 10px 5px #fff;
     padding-bottom: 56.25%;
     padding-top: 30px;
     height: 0;
@@ -284,11 +292,115 @@ body {
 }
 
 #video-section .video-container #video {
+    height: 100%;
+    width: 100%; 
     position: absolute;
     top: 0; 
     left: 0; 
-    width: 100%; 
-    height: 100%;
+}
+
+#pricing {
+    max-width: 95%;
+    padding: .5em;
+    justify-self: center;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1em;
+    color: #000;
+}
+
+#pricing .tenor,
+         .bass,
+         .valve {
+             background: linear-gradient(150deg, var(--card-color1), var(--card-color2));
+             border-radius: .5em;
+             color: var(--text-color);
+             text-shadow: 2px 2px 6px black;
+             display: grid;
+             grid-template-rows: auto auto 3fr 1fr;
+             transition: 150ms;
+            }
+
+#pricing .tenor:hover,
+         .bass:hover,
+         .valve:hover {
+             box-shadow: 0 0 4px 1px gray;
+         }
+
+#pricing .tenor {
+    background: linear-gradient(150deg, #ffec61, #f321d7);
+}
+
+#pricing .bass {
+    background: linear-gradient(150deg, #f403d1, #64b5f6);
+}
+
+#pricing .valve {
+    background: linear-gradient(150deg, #24ff72, #2196f3);
+}
+
+#pricing .title-subscription {
+    padding: .5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .2em;
+}
+
+#pricing h3 h4 {
+    align-self: center;
+    padding: 1em;
+}
+
+#pricing h3 {
+    font-size: 1.4em;
+}
+
+#pricing h4 {
+    font-size: 1.2em;
+}
+
+#pricing span {
+    justify-self: center;
+    font-size: 2em;
+    font-weight: 700;
+}
+
+#pricing p {
+    padding: .8em;
+    line-height: 1.7em;
+    font-weight: 700;
+    text-align: justify;
+    align-self: center;
+}
+
+#pricing .btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pricing .btn-container .btn-select {
+    min-height: 80%;
+    min-width: 60%;
+    background: #FFF;
+    border-radius: .5em;
+    margin: 10px 0;
+    color: #000;
+    text-shadow: none;
+    font-family: var(--second-font-family);
+    font-weight: 700;
+    grid-row: 4 / 5;
+    grid-column: 1 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 250ms;
+}
+
+#pricing .btn-container .btn-select:hover {
+    background: var(--btn-color);
+    color: var(--text-color);
 }
 
 @media (min-width: 400px) {
@@ -312,6 +424,22 @@ body {
 
     #get-started #form #email {
         padding: .6em .6em .6em 1.5em;
+    }
+}
+
+@media (min-width: 600px){
+    #video-section {
+        padding: 1em .5em;
+    }
+
+    #pricing {
+        grid-template-rows: 1fr auto;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #pricing .valve {
+        grid-template-rows: auto auto 3fr 2fr;
+        grid-column: 1 / 3;
     }
 }
 
@@ -359,9 +487,28 @@ body {
     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1000px) {
     #video-section {
-        min-width: 53em;
+        min-width: 60em;
+        max-width: 40em;
+        padding: 1em 1em;
+    }
+
+    #pricing {
+        grid-template-rows: none;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    #pricing .valve {
+        grid-template-rows: auto auto 3fr 1fr;
+        grid-column: 3 / 4;
+    }
+}
+
+@media (min-width: 1200px) {
+    #pricing {
+        max-width: 72em;
+        justify-self: center;
     }
 }
 
