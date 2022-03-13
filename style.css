@@ -187,7 +187,7 @@ body {
     min-width: 10em;
     margin-top: 8em;
     display: grid;
-    gap: 3em;
+    gap: 8em;
 }
 
 #get-started {
@@ -647,7 +647,7 @@ body {
     }
 
     #content {
-        margin-top: 9em;
+        margin-top: 8em;
     }
 }
 
