@@ -58,20 +58,20 @@ function events() {
                         // if the navBar doesn't have a class of nav-bar-show set it to it,that make the menu to show up. If it does delete the class. Making the menu showing up and down. 
                         navBar.classList.toggle('nav-bar-show');
                 
-                        
+                        // if the navBar have that class set it's transition to 250ms.
                         if (navBar.classList.contains('nav-bar-show')) {
                             navBar.style.transition = '250ms';
+                        // if it doesn't have set the transition to 250ms also.
                         } else {
                             navBar.style.transition = '250ms';
                         }
                         
+                        // after the navBar shown or dissapeared with the transition applied to it the transition get back to its original value, 0ms, to not affect the rest of the animation of the navBar when the screen get bigger.
                         setTimeout (
                             function () {
                                 navBar.style.transition = '0ms';
                             }, 500
                         ) 
-
-                        // navBar.style.transition = '0ms';
 
                         navBar.children[0].classList.toggle('nav-btn-container-opacity');
                         navBar.children[1].classList.toggle('nav-btn-container-opacity');
@@ -85,7 +85,6 @@ function events() {
                 } else if (target.parentElement.parentElement.classList.contains('check-tag')){
                     show();
                     rotateIcon();
-                    // removeTransition();
 
                     function show () {
                         navBar.classList.toggle('nav-bar-show');
@@ -120,11 +119,10 @@ function events() {
     function checkWidthSize () {
         window.addEventListener('resize', function () {
             if (window.innerWidth >= 750) {
+                // Check when the screen get bigger than 750px if the navBar has the class of nav-bar-show, meaning that it is vissible for the user, if it is hidde the navBar.
                 if (navBar.classList.contains('nav-bar-show')) {
                     navBar.classList.remove('nav-bar-show');
                 }
-            } else {
-                console.log('lower');
             }
         })
     }
