@@ -58,6 +58,10 @@ body {
     grid-template-columns: 1fr 1fr;
 }
 
+#header .container-logo .title:hover {
+    color: var(--btn-color);
+}
+
 #header #expand-button {
     margin-right: 1em;
     display: flex;
@@ -198,6 +202,7 @@ body {
     align-self: center;
     justify-self: start;
     cursor: pointer;
+    transition: 250ms;
 }
 
 #content {
