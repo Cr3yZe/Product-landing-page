@@ -20,6 +20,7 @@ function events() {
             // if the target happens on the logo the page will reload
             if (target.classList.contains('logo') || target.classList.contains('title')) {
                 window.location.reload(true);
+                window.scrollTo(0, 0);
             }    
         });    
     }
