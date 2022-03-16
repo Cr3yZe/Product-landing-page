@@ -16,7 +16,7 @@ function events() {
 
     function loadContnet () {
         window.addEventListener('DOMContentLoaded', () => {
-            window.scrollTo(0, 0);
+            window.scroll(0, 0);
         })
     }
 
@@ -27,7 +27,6 @@ function events() {
             // if the target happens on the logo the page will reload
             if (target.classList.contains('logo') || target.classList.contains('title')) {
                 window.location.reload(true);
-                window.scrollTo(0, 0);
             }    
         });    
     }
