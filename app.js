@@ -39,12 +39,20 @@ function events() {
         
         function checkLastScroll () {
             window.addEventListener('scroll', function () {
-                
-                // if the value of lastScroll is less than the currernt winosw.scrollY, it means that the user is scrolling down, the header will be hidden, otherwise it means that he or she is scrolling up, the header is visible
-                if (lastScroll < window.scrollY) {
-                    header.classList.add('remove');
-                } else {
-                    header.classList.remove('remove');
+                if (window.innerWidth <= 500) {
+                    // if the value of lastScroll is less than the currernt winosw.scrollY, it means that the user is scrolling down, the header will be hidden, otherwise it means that he or she is scrolling up, the header is visible
+                    if (lastScroll < window.scrollY) {
+                        header.classList.add('remove');
+                        if (navBar.classList.contains('nav-bar-show')) {
+                            navBar.classList.remove('nav-bar-show');
+
+                            menuButtonsArray.forEach( element => {
+                                element.classList.remove('nav-btn-container-opacity');
+                            })
+                        }
+                    } else {
+                        header.classList.remove('remove');
+                    }
                 }
                 
                 // at the end of each execution of the function the value of window.scrollY will be saved in the lastScroll variable, for the next execution.
@@ -143,6 +151,12 @@ function events() {
 
     function checkWidthSize () {
         window.addEventListener('resize', function () {
+            if (window.innerWidth >= 500) {
+                if (header.classList.contains('remove')) {
+                    header.classList.remove('remove');
+                }
+            }
+
             if (window.innerWidth >= 750) {
                 // Check when the screen get bigger than 750px if the navBar has the class of nav-bar-show, meaning that it is vissible for the user, if it is hidde the navBar.
                 if (navBar.classList.contains('nav-bar-show')) {
