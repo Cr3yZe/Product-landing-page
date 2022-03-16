@@ -7,11 +7,18 @@ const menuButtonsArray = [navBar.children[0], navBar.children[1], navBar.childre
 events();
 
 function events() {
+    loadContnet();
     reloadPage();
     hiddeHeader();
     showTheMenu();
     checkWidthSize();
     hiddeMenuWhencClicked();
+
+    function loadContnet () {
+        window.addEventListener('DOMContentLoaded', () => {
+            window.scrollTo(0, 0);
+        })
+    }
 
     function reloadPage () {
         header.addEventListener('click', function (e) {
