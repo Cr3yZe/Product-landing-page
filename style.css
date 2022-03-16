@@ -125,12 +125,15 @@ body {
 }
 
 #header .navigation .nav-link {
-    margin-left: 1em;
+    width: 100%;
+    padding-left: 1em;
     color: #222;
-    /* color: #222; */
     font-size: 1.4em;
     text-decoration: none;
     font-weight: 700;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
 }
 
 #header .navigation .nav-btn-container:hover {
@@ -653,6 +656,11 @@ body {
 
     #header .navigation .nav-link {
         margin: 0;
+    }
+
+    #header .navigation .nav-btn-container .nav-link {
+        padding: 0;
+        justify-content: center;
     }
     
     #header .navigation .nav-link:hover {
