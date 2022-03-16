@@ -15,7 +15,7 @@ function events() {
     hiddeMenuWhencClicked();
 
     function loadContnet () {
-        window.addEventListener('load', () => {
+        window.addEventListener('DOMContentLoaded', () => {
             window.scrollTo(0, 0);
         })
     }
